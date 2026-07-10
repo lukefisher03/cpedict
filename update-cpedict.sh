@@ -53,7 +53,7 @@ scrape_cpe_gzs () {
 
     if ! gzip -dcf -- *.gz | # uncompress all gz-files to stdout
         # match cpe 2.3 identifiers with type 'a' (application)
-        grep -aPo "cpe:2\.3:[a]:([^:]+:)+" |
+        grep -aPo "cpe:2\.3:[aoh]:([^:]+:)+" |
         # replace all '\\' with '\' (possible double escape sequence)
         sed -E 's|\\\\|\\|g' |
         # replace all '\:' with '!COLON!' (possible escaped ':' in cpe values)
